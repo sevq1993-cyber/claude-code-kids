@@ -1,0 +1,7 @@
+# Written by `claude -p "/plugin-types ."` for editors and tsc; belongs to the build, not to the mod.
+.claude/types/
+node_modules/
+bun.lock
+bun.lockb
+package.json
+.claude-plugin/types/

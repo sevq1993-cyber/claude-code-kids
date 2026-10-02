@@ -1,0 +1,12 @@
+{
+  "name": "kids",
+  "displayName": "Kids: child chats",
+  "version": "0.2.0",
+  "description": "A pane with the tree of child chats spawned from this chat: what each is doing, which branch it sits on, and what is still not merged. Read-only, no model calls.",
+  "author": { "name": "Seva", "url": "https://github.com/sevq1993-cyber" },
+  "homepage": "https://github.com/sevq1993-cyber/claude-code-kids",
+  "repository": "https://github.com/sevq1993-cyber/claude-code-kids",
+  "license": "MIT",
+  "keywords": ["mod", "function-hooks", "worktree", "git", "subagents", "pane"],
+  "types": "./types/index.d.ts"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "claude-code-kids",
+  "description": "Mods for Claude Code by Seva: kids, a pane with the tree of child chats and what is left to merge.",
+  "owner": {
+    "name": "Seva",
+    "url": "https://github.com/sevq1993-cyber"
+  },
+  "plugins": [
+    {
+      "name": "kids",
+      "source": "./",
+      "description": "A pane with the tree of child chats: what each is doing, which branch it sits on, and what is still not merged."
+    }
+  ]
+}

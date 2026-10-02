@@ -191,11 +191,11 @@ async function isAutoOpen($: EngineInterface): Promise<boolean> {
   return root !== null && (await autoOpenList($)).includes(root);
 }
 
-async function setAutoOpen($: EngineInterface, on: boolean): Promise<void> {
+async function setAutoOpen($: EngineInterface, enabled: boolean): Promise<void> {
   const root = await rootOf($);
   if (root === null) return;
   const list = (await autoOpenList($)).filter(r => r !== root);
-  await $.store.set(AUTO_OPEN, on ? [...list, root] : list);
+  await $.store.set(AUTO_OPEN, enabled ? [...list, root] : list);
 }
 
 function hostOf($: EngineInterface): Host {

@@ -30,6 +30,25 @@ The mod reads the desktop app's own chat metadata and asks git questions. It
 never merges, deletes, or calls the model. The only button, "to prompt: review
 and merge", fills the prompt box with a request you send yourself.
 
+## What it reads, runs and sends
+
+- Reads: the chat metadata files of the Claude desktop app under
+  `~/Library/Application Support/Claude/claude-code-sessions/` (chat titles,
+  working directories, branches, status) and the session files under
+  `~/.claude/sessions/` (process ids). It does not read the conversation.
+- Runs: only `git` and `ps`, on this machine, in read-only mode. The `git`
+  subcommands are fixed in `hooks/scan.ts`: `worktree list`, `for-each-ref`,
+  `rev-parse`, `rev-list --count`, `merge-base --is-ancestor`, `log -1` and
+  `status --porcelain`; the only variable parts are the repository path, a
+  worktree path and branch names taken from the metadata above. `ps` is run
+  with `-o pid= -p <pids>` to see which chats still have a live process.
+- Sends: nothing. No network calls, no model calls, no writes outside the
+  plugin's own store, which keeps one list: the projects where the pane opens
+  by itself.
+- Hooks: `ui.close` on its own pane, only to remember that you closed it by
+  hand so it stops opening by itself in that project. It does not change the
+  close call.
+
 The text of the pane is in Russian. The words live in one file,
 `hooks/model.ts`, so translating is a small change.
 
